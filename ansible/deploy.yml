@@ -150,6 +150,12 @@
       args:
         chdir: '{{ app_dir }}'
 
+    - name: Start market service
+      systemd:
+        name: '{{ app_name }}'
+        state: started
+        enabled: yes
+
   handlers:
     - name: Reload systemd
       systemd:
